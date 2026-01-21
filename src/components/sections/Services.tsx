@@ -2,23 +2,23 @@
 
 import { motion } from 'framer-motion';
 import { Globe, Smartphone, Layers, Server, Database, Cpu, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { useState, useRef, MouseEvent } from 'react';
 
 const services = [
   {
     id: 'web',
     title: 'Sites Web Sur Mesure',
-    description: 'Transformez votre presence en ligne avec des sites modernes, rapides et optimises SEO. De la vitrine elegante au e-commerce performant, chaque pixel est concu pour convertir vos visiteurs en clients.',
+    description: 'Transformez votre présence en ligne avec des sites modernes, rapides et optimisés SEO. De la vitrine élégante au e-commerce performant, chaque pixel est conçu pour convertir vos visiteurs en clients.',
     icon: Globe,
-    features: ['Sites vitrines haute conversion', 'E-commerce & paiement securise', 'Applications web interactives', 'PWA ultra-rapides'],
+    features: ['Sites vitrines haute conversion', 'E-commerce & paiement sécurisé', 'Applications web interactives', 'PWA ultra-rapides'],
     gradient: 'from-violet-500 to-purple-600',
-    featured: true,
     stats: '+300% de conversions en moyenne',
-    cta: 'Creer mon site',
+    cta: 'Créer mon site',
   },
   {
     id: 'mobile',
     title: 'Applications Mobiles',
-    description: 'Placez votre entreprise dans la poche de vos clients. Applications natives iOS/Android ou cross-platform alliant performance, design intuitif et experience utilisateur exceptionnelle.',
+    description: 'Placez votre entreprise dans la poche de vos clients. Applications natives iOS/Android ou cross-platform alliant performance, design intuitif et expérience utilisateur exceptionnelle.',
     icon: Smartphone,
     features: ['iOS & Android natif', 'React Native / Flutter', 'UI/UX mobile-first', 'Notifications push'],
     gradient: 'from-emerald-500 to-teal-600',
@@ -27,21 +27,20 @@ const services = [
   },
   {
     id: 'software',
-    title: 'Logiciels Metier',
-    description: 'Automatisez vos processus et gagnez en productivite avec des outils sur mesure. ERP, CRM, tableaux de bord - vos workflows optimises pour votre metier specifique.',
+    title: 'Logiciels Métier',
+    description: 'Automatisez vos processus et gagnez en productivité avec des outils sur mesure. ERP, CRM, tableaux de bord - vos workflows optimisés pour votre métier spécifique.',
     icon: Layers,
-    features: ['ERP personnalise', 'CRM intelligent', 'Workflows automatises', 'Analytics temps reel'],
+    features: ['ERP personnalisé', 'CRM intelligent', 'Workflows automatisés', 'Analytics temps réel'],
     gradient: 'from-blue-500 to-cyan-600',
-    featured: true,
     stats: '-40% temps administratif',
     cta: 'Optimiser mes processus',
   },
   {
     id: 'api',
     title: 'APIs & Backend',
-    description: 'Infrastructure backend robuste et scalable. APIs REST/GraphQL securisees, microservices, integration tierces - la fondation technique de votre succes digital.',
+    description: 'Infrastructure backend robuste et scalable. APIs REST/GraphQL sécurisées, microservices, intégration tierces - la fondation technique de votre succès digital.',
     icon: Server,
-    features: ['REST & GraphQL', 'Architecture microservices', 'Integrations tierces', 'Temps reel & WebSockets'],
+    features: ['REST & GraphQL', 'Architecture microservices', 'Intégrations tierces', 'Temps réel & WebSockets'],
     gradient: 'from-orange-500 to-amber-600',
     stats: '99.9% uptime garanti',
     cta: 'Architecturer mon backend',
@@ -49,85 +48,116 @@ const services = [
   {
     id: 'database',
     title: 'Architecture Data',
-    description: 'Vos donnees sont votre tresor. Conception de bases optimisees, migrations securisees et strategies de cache pour des performances exceptionnelles a grande echelle.',
+    description: 'Vos données sont votre trésor. Conception de bases optimisées, migrations sécurisées et stratégies de cache pour des performances exceptionnelles à grande échelle.',
     icon: Database,
-    features: ['PostgreSQL / MongoDB', 'Redis & caching avance', 'Migration zero downtime', 'Backup & securite'],
+    features: ['PostgreSQL / MongoDB', 'Redis & caching avancé', 'Migration zero downtime', 'Backup & sécurité'],
     gradient: 'from-pink-500 to-rose-600',
-    stats: '10x plus rapide apres optimisation',
-    cta: 'Optimiser mes donnees',
+    stats: '10x plus rapide après optimisation',
+    cta: 'Optimiser mes données',
   },
   {
     id: 'consulting',
     title: 'Conseil & Audit',
-    description: 'Beneficiez d\'un regard expert sur votre stack technique. Audit de code, revue d\'architecture, formation equipe - accelerez votre montee en competences.',
+    description: 'Bénéficiez d\'un regard expert sur votre stack technique. Audit de code, revue d\'architecture, formation équipe - accélérez votre montée en compétences.',
     icon: Cpu,
     features: ['Audit code approfondi', 'Revue architecture', 'Formation sur mesure', 'Accompagnement agile'],
     gradient: 'from-indigo-500 to-violet-600',
-    stats: '+60% productivite equipe',
+    stats: '+60% productivité équipe',
     cta: 'Planifier un audit',
   },
 ];
 
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const mouseX = (e.clientX - centerX) / (rect.width / 2);
+    const mouseY = (e.clientY - centerY) / (rect.height / 2);
+    setRotateX(-mouseY * 8);
+    setRotateY(mouseX * 8);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setRotateX(0);
+    setRotateY(0);
+  };
+
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className={`group relative ${service.featured ? 'sm:col-span-2 md:col-span-2 lg:col-span-1 lg:row-span-2' : ''}`}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      className="group relative"
+      style={{ perspective: 1000 }}
     >
-      <div
-        className={`relative h-full ${service.featured ? 'p-6 sm:p-8 md:p-10 lg:p-12' : 'p-5 sm:p-6 md:p-8'} rounded-3xl bg-dark-900 border border-dark-800 group-hover:border-violet-500/50 transition-all duration-300`}
+      <motion.div
+        animate={{
+          rotateX: isHovered ? rotateX : 0,
+          rotateY: isHovered ? rotateY : 0,
+        }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        className="relative h-full p-6 sm:p-8 rounded-2xl bg-dark-900 border border-dark-800 group-hover:border-violet-500/50 transition-colors duration-300"
+        style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Icon */}
-        <div
-          className={`${service.featured ? 'w-16 h-16 mb-8' : 'w-14 h-14 mb-6'} rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center`}
+        <motion.div
+          className={`w-14 h-14 mb-6 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center`}
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
         >
-          <service.icon className={`${service.featured ? 'w-8 h-8' : 'w-6 h-6'} text-white`} />
-        </div>
+          <service.icon className="w-7 h-7 text-white" />
+        </motion.div>
 
         {/* Stats Badge */}
         {service.stats && (
-          <div
-            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 ${service.featured ? 'mb-6' : 'mb-4'}`}
-          >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-4">
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs font-semibold text-emerald-400">{service.stats}</span>
           </div>
         )}
 
         {/* Content */}
-        <h3
-          className={`${service.featured ? 'text-2xl lg:text-3xl' : 'text-xl'} font-bold text-white mb-3 group-hover:text-violet-300 transition-colors duration-300`}
-        >
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-violet-300 transition-colors duration-300">
           {service.title}
         </h3>
-        <p className={`text-dark-400 leading-relaxed ${service.featured ? 'text-base mb-8' : 'text-sm mb-6'}`}>
+        <p className="text-sm text-dark-400 leading-relaxed mb-6">
           {service.description}
         </p>
 
         {/* Features */}
-        <div className={`space-y-3 ${service.featured ? 'mb-8' : 'mb-6'}`}>
+        <div className="space-y-2.5 mb-6">
           {service.features.map((feature) => (
             <div key={feature} className="flex items-center gap-3">
-              <CheckCircle2 className={`${service.featured ? 'w-5 h-5' : 'w-4 h-4'} text-emerald-400 flex-shrink-0`} />
-              <span className={`${service.featured ? 'text-base' : 'text-sm'} text-dark-300`}>
-                {feature}
-              </span>
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <span className="text-sm text-dark-300">{feature}</span>
             </div>
           ))}
         </div>
 
         {/* CTA Button */}
-        <a
+        <motion.a
           href="#contact"
-          className={`inline-flex items-center gap-2 ${service.featured ? 'px-6 py-3 text-base' : 'px-4 py-2 text-sm'} font-semibold rounded-xl bg-violet-500/10 border border-violet-500/30 text-white hover:bg-violet-500/20 hover:border-violet-500/50 transition-all duration-300`}
+          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-violet-500/10 border border-violet-500/30 text-white hover:bg-violet-500/20 hover:border-violet-500/50 transition-all duration-300"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <span>{service.cta || 'En savoir plus'}</span>
-          <ArrowUpRight className={`${service.featured ? 'w-5 h-5' : 'w-4 h-4'} text-violet-400`} />
-        </a>
-      </div>
+          <span>{service.cta}</span>
+          <ArrowUpRight className="w-4 h-4 text-violet-400" />
+        </motion.a>
+      </motion.div>
     </motion.div>
   );
 }
@@ -171,28 +201,17 @@ export default function Services() {
           >
             Du site vitrine performant à l&apos;application métier complexe,
             nous transformons vos idées en solutions digitales qui font la différence.
-            <span className="text-white font-medium"> Code propre, design moderne, resultats mesurables.</span>
+            <span className="text-white font-medium"> Code propre, design moderne, résultats mesurables.</span>
           </motion.p>
         </div>
 
-        {/* Bento Grid - Services */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes gradient-flow {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </section>
   );
 }
