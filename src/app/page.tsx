@@ -23,35 +23,17 @@ const Hero3D = dynamic(() => import('@/components/sections/Hero3D'), {
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <>
       <Hero3D />
-      <div className="py-20 md:py-28 lg:py-36">
-        <Services />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <Technologies />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <Portfolio />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <Process />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <About />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <Testimonials />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <FAQ />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <CTABanner />
-      </div>
-      <div className="py-20 md:py-28 lg:py-36">
-        <Contact />
-      </div>
-    </div>
+      <Services />
+      <Technologies />
+      <Portfolio />
+      <Process />
+      <About />
+      <Testimonials />
+      <FAQ />
+      <CTABanner />
+      <Contact />
+    </>
   );
 }
