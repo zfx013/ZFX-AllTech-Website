@@ -172,7 +172,7 @@ export default function Services() {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20 lg:mb-24 px-4">
+        <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto mb-24 lg:mb-32 px-4">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
