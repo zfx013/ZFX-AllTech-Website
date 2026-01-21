@@ -42,7 +42,7 @@ export default function CTABanner() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative py-32 overflow-hidden">
+    <section ref={containerRef} className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0">
         {/* Base gradient */}

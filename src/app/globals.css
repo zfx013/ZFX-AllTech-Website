@@ -945,21 +945,33 @@ input, textarea, select, button {
   animation: spin-slow 8s linear infinite;
 }
 
-/* Responsive Container */
+/* Responsive Container - Progressive padding scale */
 .container-custom {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding: 0 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .container-custom {
     padding: 0 3rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .container-custom {
     padding: 0 4rem;
   }

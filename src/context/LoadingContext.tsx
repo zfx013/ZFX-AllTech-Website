@@ -16,28 +16,40 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate progressive loading with slower, more visible progression
-    const timer = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          clearInterval(timer);
-          return 100;
-        }
-        // Slower increment for more visible loading animation
-        const increment = Math.random() * 4 + 2;
-        return Math.min(prevProgress + increment, 100);
-      });
-    }, 80);
+    // Fast progression for instant feel (150-400ms target)
+    // Phase 1: 0-90% very fast (150ms)
+    // Phase 2: 90-100% on hydration
+    let frame: number;
+    let startTime: number;
 
-    return () => clearInterval(timer);
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+
+      // Fast exponential progression to 90% in ~150ms
+      const targetProgress = Math.min(90, (elapsed / 150) * 90);
+
+      setProgress(Math.min(targetProgress, 90));
+
+      if (targetProgress < 90) {
+        frame = requestAnimationFrame(animate);
+      } else {
+        // Jump to 100% immediately after reaching 90%
+        setProgress(100);
+      }
+    };
+
+    frame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
-    if (progress === 100) {
-      // Keep preloader visible for a brief moment after reaching 100%
+    if (progress >= 100) {
+      // Minimal delay after reaching 100% (just for visual completion)
       const timeout = setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 150);
       return () => clearTimeout(timeout);
     }
   }, [progress]);
