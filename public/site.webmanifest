@@ -1,0 +1,17 @@
+{
+  "name": "ZFX AllTech - Développeur Fullstack Freelance",
+  "short_name": "ZFX AllTech",
+  "description": "Développement web et logiciels sur mesure en Île-de-France",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

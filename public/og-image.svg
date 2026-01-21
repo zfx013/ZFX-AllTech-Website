@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#09090b"/>
+      <stop offset="100%" style="stop-color:#18181b"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="150" cy="150" r="200" fill="url(#accentGrad)" opacity="0.5"/>
+  <circle cx="1050" cy="480" r="250" fill="url(#accentGrad)" opacity="0.5"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#8b5cf6" stroke-width="0.5" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Logo/Brand -->
+  <text x="100" y="280" font-family="system-ui, sans-serif" font-size="72" font-weight="bold">
+    <tspan fill="#8b5cf6">ZFX</tspan>
+    <tspan fill="#10b981"> AllTech</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="100" y="350" font-family="system-ui, sans-serif" font-size="36" fill="#a1a1aa">
+    Developpeur Fullstack Freelance
+  </text>
+
+  <!-- Services -->
+  <text x="100" y="420" font-family="system-ui, sans-serif" font-size="24" fill="#71717a">
+    Sites Web | Applications | APIs | Logiciels Metier
+  </text>
+
+  <!-- Location -->
+  <text x="100" y="500" font-family="system-ui, sans-serif" font-size="20" fill="#52525b">
+    Ile-de-France, France
+  </text>
+
+  <!-- Website -->
+  <text x="100" y="540" font-family="system-ui, sans-serif" font-size="20" fill="url(#textGrad)">
+    zfx-alltech.fr
+  </text>
+
+  <!-- Decorative code element -->
+  <rect x="750" y="180" width="350" height="270" rx="12" fill="#18181b" stroke="#27272a" stroke-width="2"/>
+  <text x="770" y="220" font-family="monospace" font-size="14" fill="#8b5cf6">const</text>
+  <text x="820" y="220" font-family="monospace" font-size="14" fill="#fafafa"> developer = {</text>
+  <text x="790" y="250" font-family="monospace" font-size="14" fill="#a1a1aa">name:</text>
+  <text x="850" y="250" font-family="monospace" font-size="14" fill="#10b981">'ZFX AllTech'</text>
+  <text x="790" y="280" font-family="monospace" font-size="14" fill="#a1a1aa">skills:</text>
+  <text x="855" y="280" font-family="monospace" font-size="14" fill="#10b981">['React', 'Node']</text>
+  <text x="790" y="310" font-family="monospace" font-size="14" fill="#a1a1aa">available:</text>
+  <text x="880" y="310" font-family="monospace" font-size="14" fill="#10b981">true</text>
+  <text x="770" y="340" font-family="monospace" font-size="14" fill="#fafafa">};</text>
+</svg>
