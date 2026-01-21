@@ -170,46 +170,50 @@ export default function Services() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
 
-      <div className="container-custom relative z-10">
+      <div className="relative z-10 w-full">
         {/* Header */}
-        <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto mb-24 lg:mb-32 px-4">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-medium mb-6"
-          >
-            Expertise & Services
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-center w-full"
-          >
-            Des solutions{' '}
-            <span className="gradient-text">sur mesure</span>
-            <br />qui propulsent votre business
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-dark-300 leading-relaxed max-w-2xl text-center"
-          >
-            Du site vitrine performant à l&apos;application métier complexe,
-            nous transformons vos idées en solutions digitales qui font la différence.
-            <span className="text-white font-medium"> Code propre, design moderne, résultats mesurables.</span>
-          </motion.p>
+        <div className="w-full px-4 mb-24 lg:mb-32">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-medium mb-6"
+            >
+              Expertise & Services
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
+            >
+              Des solutions{' '}
+              <span className="gradient-text">sur mesure</span>
+              <br />qui propulsent votre business
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-lg text-dark-300 leading-relaxed max-w-2xl mx-auto"
+            >
+              Du site vitrine performant à l&apos;application métier complexe,
+              nous transformons vos idées en solutions digitales qui font la différence.
+              <span className="text-white font-medium"> Code propre, design moderne, résultats mesurables.</span>
+            </motion.p>
+          </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
-          ))}
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <ServiceCard key={service.id} service={service} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
