@@ -278,7 +278,7 @@ export default function Technologies() {
   };
 
   return (
-    <section id="technologies" className="relative py-24 lg:py-32 bg-dark-900/50 overflow-hidden">
+    <section id="technologies" className="relative py-28 lg:py-36 bg-dark-900/50 overflow-hidden">
       {/* Enhanced grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
@@ -332,7 +332,7 @@ export default function Technologies() {
 
       <div className="container-custom relative z-10">
         {/* Header with enhanced styling */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -348,7 +348,7 @@ export default function Technologies() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
           >
             Technologies{' '}
             <span className="gradient-text-animated">maitrisees</span>
@@ -451,7 +451,7 @@ export default function Technologies() {
         </motion.div>
 
         {/* Enhanced Tech Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-20">
           <AnimatePresence mode="popLayout">
             {filteredCategories.map((category, catIndex) => {
               const colorClasses = getColorClasses(category.color);

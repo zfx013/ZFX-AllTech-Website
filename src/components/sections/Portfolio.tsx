@@ -661,7 +661,7 @@ export default function Portfolio() {
   );
 
   return (
-    <section id="portfolio" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="portfolio" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/5 to-transparent" />
@@ -672,7 +672,7 @@ export default function Portfolio() {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -687,7 +687,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
           >
             Projets qui{' '}
             <span className="gradient-text">impressionnent</span>
@@ -710,7 +710,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-16"
         >
           {categories.map((category, index) => (
             <motion.button
@@ -762,7 +762,7 @@ export default function Portfolio() {
             {regularProjects.length > 0 && (
               <motion.div
                 layout
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
               >
                 {regularProjects.map((project, index) => (
                   <ProjectCard
@@ -1094,7 +1094,7 @@ function ProjectCard({
         </div>
 
         {/* Content */}
-        <div className="p-6 flex-1 flex flex-col">
+        <div className="p-6 lg:p-8 flex-1 flex flex-col">
           <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-400 group-hover:to-emerald-400 transition-all duration-300">
             {project.title}
           </h3>

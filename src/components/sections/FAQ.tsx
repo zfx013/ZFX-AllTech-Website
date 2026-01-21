@@ -196,7 +196,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-28 lg:py-36 overflow-hidden"
       itemScope
       itemType="https://schema.org/FAQPage"
     >
@@ -233,7 +233,7 @@ export default function FAQ() {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -257,7 +257,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
           >
             Des questions ?{' '}
             <span className="gradient-text">On vous répond</span>

@@ -149,7 +149,7 @@ export default function Contact() {
   const hasErrors = Object.values(errors).some(error => error);
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="contact" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950" />
       <div className="absolute inset-0 animated-grid opacity-10" />
@@ -184,7 +184,7 @@ export default function Contact() {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -198,7 +198,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
           >
             Démarrons votre{' '}
             <span className="gradient-text">projet</span>

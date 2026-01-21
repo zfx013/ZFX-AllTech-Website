@@ -204,7 +204,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="testimonials" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
       <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 via-transparent to-emerald-500/5" />
@@ -223,7 +223,7 @@ export default function Testimonials() {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +238,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
           >
             Ce que disent mes{' '}
             <span className="gradient-text">clients</span>
@@ -275,7 +275,7 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Carousel */}
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto mb-20">
           <div className="relative">
             {/* Decorative Quote Marks */}
             <div className="absolute -top-8 -left-4 lg:-left-8 text-violet-500/20 pointer-events-none">
@@ -466,7 +466,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto mb-16"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 max-w-6xl mx-auto mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div

@@ -170,7 +170,7 @@ export default function About() {
   const [activeTimeline, setActiveTimeline] = useState(3);
 
   return (
-    <section id="about" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="about" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-violet-600/10 rounded-full blur-[128px]" />
@@ -178,7 +178,7 @@ export default function About() {
 
       <div className="container-custom relative z-10">
         {/* Main heading with text reveal */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 lg:mb-24">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -193,7 +193,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
           >
             Transformer vos idées en{' '}
             <span className="gradient-text">solutions digitales</span>

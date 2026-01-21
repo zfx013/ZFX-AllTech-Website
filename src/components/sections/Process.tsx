@@ -73,7 +73,7 @@ export default function Process() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   return (
-    <section id="process" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="process" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-violet-600/10 rounded-full blur-[128px]" />
@@ -81,7 +81,7 @@ export default function Process() {
 
       <div ref={containerRef} className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
           >
             Une méthode{' '}
             <span className="gradient-text">éprouvée</span>
