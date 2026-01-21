@@ -470,7 +470,7 @@ export default function Technologies() {
                   }}
                   onMouseEnter={() => setHoveredCategory(category.name)}
                   onMouseLeave={() => setHoveredCategory(null)}
-                  className={`relative p-6 rounded-2xl backdrop-blur-sm group transition-all duration-500
+                  className={`relative p-8 rounded-2xl backdrop-blur-sm group transition-all duration-500
                     ${colorClasses.bg} border ${colorClasses.border}
                     hover:${colorClasses.bgHover} hover:${colorClasses.borderHover}
                     ${isHovered ? colorClasses.glow : ''}
@@ -480,7 +480,7 @@ export default function Technologies() {
                   <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${colorClasses.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 -z-10`} />
 
                   {/* Category Header with icon */}
-                  <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center gap-3 mb-8">
                     <motion.div
                       whileHover={{ rotate: 180, scale: 1.1 }}
                       transition={{ duration: 0.5 }}
@@ -500,7 +500,7 @@ export default function Technologies() {
                   </div>
 
                   {/* Technologies with enhanced display */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {category.techs.map((tech, techIndex) => {
                       const profData = getProficiencyData(tech.proficiency);
                       return (

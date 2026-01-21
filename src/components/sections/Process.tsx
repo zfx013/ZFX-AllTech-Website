@@ -127,7 +127,7 @@ export default function Process() {
           </div>
 
           {/* Steps */}
-          <div className="grid grid-cols-5 gap-6">
+          <div className="grid grid-cols-5 gap-8">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -206,7 +206,7 @@ export default function Process() {
                   </div>
 
                   {/* Card */}
-                  <div className="h-full p-6 pt-8 rounded-2xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/30 transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-violet-500/10">
+                  <div className="h-full p-8 pt-10 rounded-2xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/30 transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-violet-500/10">
                     {/* Hover glow effect */}
                     <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
 
@@ -288,7 +288,7 @@ export default function Process() {
                 transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
                 className="flex-1 pb-8"
               >
-                <div className="p-6 rounded-2xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/30 transition-all duration-300 h-full relative overflow-hidden group">
+                <div className="p-8 rounded-2xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/30 transition-all duration-300 h-full relative overflow-hidden group">
                   {/* Hover glow effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
 

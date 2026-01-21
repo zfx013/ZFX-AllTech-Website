@@ -299,7 +299,7 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 + index * 0.1 }}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    className="group p-5 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/50 transition-all cursor-default relative overflow-hidden"
+                    className="group p-6 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/50 transition-all cursor-default relative overflow-hidden"
                   >
                     {/* Hover gradient */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-5 transition-opacity`} />
@@ -430,7 +430,7 @@ export default function About() {
                 <motion.div
                   key={item.label}
                   whileHover={{ scale: 1.02, y: -2 }}
-                  className="p-4 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/30 transition-all"
+                  className="p-5 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-violet-500/30 transition-all"
                 >
                   <item.icon className="w-5 h-5 text-violet-400 mb-2" />
                   <p className="text-white font-medium text-sm">{item.label}</p>
