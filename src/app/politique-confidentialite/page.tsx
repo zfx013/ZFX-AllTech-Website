@@ -501,7 +501,7 @@ export default function PolitiqueConfidentialite() {
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                     <strong className="text-white min-w-[140px]">Téléphone :</strong>
                     <a href="tel:+33782251099" className="text-violet-400 hover:text-violet-300 transition-colors">
-                      07 82 25 10 99
+                      +33 7 82 25 10 99
                     </a>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start gap-2">

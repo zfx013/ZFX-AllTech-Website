@@ -57,7 +57,7 @@ export default function MentionsLegales() {
                 <div className="flex flex-col sm:flex-row sm:gap-2">
                   <strong className="text-white min-w-[180px]">Téléphone :</strong>
                   <a href="tel:+33782251099" className="text-violet-400 hover:text-violet-300 transition-colors">
-                    07 82 25 10 99
+                    +33 7 82 25 10 99
                   </a>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:gap-2">
@@ -212,7 +212,7 @@ export default function MentionsLegales() {
                   <div>
                     <strong className="text-white">Par téléphone :</strong>{' '}
                     <a href="tel:+33782251099" className="text-violet-400 hover:text-violet-300 transition-colors">
-                      07 82 25 10 99
+                      +33 7 82 25 10 99
                     </a>
                   </div>
                 </div>

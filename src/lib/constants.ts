@@ -16,7 +16,7 @@ export const siteConfig = {
   },
   contact: {
     email: 'contact@zfx-alltech.fr',
-    phone: '07 82 25 10 99',
+    phone: '+33 7 82 25 10 99',
     location: 'Île-de-France, France',
   },
   creator: 'ZFX AllTech',
@@ -29,7 +29,7 @@ export const company = {
   description: 'Développement web et logiciels sur mesure. Sites, applications, APIs - Je transforme vos idées en solutions digitales performantes.',
   founder: 'ZFX',
   email: 'contact@zfx-alltech.fr',
-  phone: '07 82 25 10 99',
+  phone: '+33 7 82 25 10 99',
   location: 'Île-de-France, France',
   socials: {
     github: 'https://github.com/zfx013',

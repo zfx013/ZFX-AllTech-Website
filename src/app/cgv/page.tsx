@@ -354,7 +354,7 @@ export default function CGV() {
                   <div>
                     <strong className="text-white">Par téléphone :</strong>{' '}
                     <a href="tel:+33782251099" className="text-violet-400 hover:text-violet-300 transition-colors">
-                      07 82 25 10 99
+                      +33 7 82 25 10 99
                     </a>
                   </div>
                 </div>
