@@ -334,7 +334,7 @@ export default function Services(): JSX.Element {
         <div
           ref={constellationRef}
           className="hidden md:block relative mx-auto origin-top"
-          style={{ height: "clamp(375px, 37.5vw, 488px)", transform: "scale(0.75)", transformOrigin: "top center" }}
+          style={{ height: "clamp(425px, 42.5vw, 553px)", transform: "scale(0.85)", transformOrigin: "top center" }}
           role="list"
           aria-label="Constellation de services"
         >
