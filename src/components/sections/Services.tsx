@@ -40,14 +40,15 @@ interface ServiceNode {
 }
 
 const SERVICES: ServiceNode[] = [
+  /* -------- Row 1 (top) -------- */
   {
     id: "web",
     icon: Globe,
     label: "Sites Web",
     description: "Sites vitrines, corporate, landing pages et portails institutionnels. Optimisation SEO, performances Core Web Vitals et design responsive sur tous les supports.",
     tags: ["Responsive", "SEO", "Core Web Vitals", "Accessibilité"],
-    x: 15,
-    y: 18,
+    x: 3,
+    y: 8,
     panelSide: "right",
   },
   {
@@ -56,9 +57,9 @@ const SERVICES: ServiceNode[] = [
     label: "E-Commerce",
     description: "Boutiques en ligne complètes avec catalogue produits, gestion de stock, paiement sécurisé Stripe, suivi de commandes et programme fidélité.",
     tags: ["Stripe", "Catalogue", "Checkout", "Gestion stock"],
-    x: 48,
-    y: 6,
-    panelSide: "left",
+    x: 27,
+    y: 8,
+    panelSide: "right",
   },
   {
     id: "mobile",
@@ -66,8 +67,8 @@ const SERVICES: ServiceNode[] = [
     label: "Apps Mobiles",
     description: "Applications iOS et Android natives ou cross-platform. Notifications push, mode hors-ligne, géolocalisation et publication sur les stores.",
     tags: ["React Native", "Flutter", "PWA", "Stores"],
-    x: 80,
-    y: 14,
+    x: 53,
+    y: 8,
     panelSide: "left",
   },
   {
@@ -76,18 +77,19 @@ const SERVICES: ServiceNode[] = [
     label: "Apps Web",
     description: "Plateformes SaaS, dashboards interactifs et portails clients. Authentification sécurisée, gestion des rôles et mises à jour en temps réel.",
     tags: ["Next.js", "Auth", "Temps réel", "Multi-tenant"],
-    x: 8,
-    y: 52,
-    panelSide: "right",
+    x: 78,
+    y: 8,
+    panelSide: "left",
   },
+  /* -------- Row 2 (bottom) -------- */
   {
     id: "software",
     icon: Cog,
     label: "Logiciels Métier",
     description: "Solutions sur mesure adaptées à vos processus : ERP, CRM, outils de gestion interne. Automatisation des tâches répétitives et intégration à votre SI existant.",
     tags: ["ERP", "CRM", "Sur mesure", "Intégration SI"],
-    x: 38,
-    y: 44,
+    x: 3,
+    y: 55,
     panelSide: "right",
   },
   {
@@ -96,9 +98,9 @@ const SERVICES: ServiceNode[] = [
     label: "APIs",
     description: "Conception et développement d\u2019APIs REST et GraphQL robustes. Documentation Swagger, webhooks, rate limiting et intégrations avec vos outils tiers.",
     tags: ["REST", "GraphQL", "Webhooks", "Swagger"],
-    x: 72,
-    y: 48,
-    panelSide: "left",
+    x: 27,
+    y: 55,
+    panelSide: "right",
   },
   {
     id: "automation",
@@ -106,9 +108,9 @@ const SERVICES: ServiceNode[] = [
     label: "Automatisation",
     description: "Automatisation de workflows métier, pipelines CI/CD, scripts de déploiement et chatbots intelligents pour gagner du temps au quotidien.",
     tags: ["CI/CD", "Scripts", "Chatbots", "Pipelines"],
-    x: 22,
-    y: 82,
-    panelSide: "right",
+    x: 53,
+    y: 55,
+    panelSide: "left",
   },
   {
     id: "data",
@@ -116,33 +118,32 @@ const SERVICES: ServiceNode[] = [
     label: "Data",
     description: "Tableaux de bord analytiques, reporting automatisé et visualisation de KPIs. Collecte, traitement et exploitation de vos données métier.",
     tags: ["KPI", "Reporting", "Dataviz", "ETL"],
-    x: 62,
-    y: 80,
+    x: 78,
+    y: 55,
     panelSide: "left",
   },
 ];
 
 /** Pairs of service indices that should be connected */
 const CONNECTIONS: [number, number][] = [
-  // Cluster top
+  // Row 1 horizontal
   [0, 1],
   [1, 2],
-  [0, 4],
-  // Cross links
-  [1, 4],
-  [2, 5],
+  [2, 3],
+  // Row 2 horizontal
   [4, 5],
-  // Left column
-  [0, 3],
-  [3, 4],
-  [3, 6],
-  // Bottom
-  [4, 7],
-  [5, 7],
+  [5, 6],
   [6, 7],
-  // Extra mesh
-  [6, 4],
+  // Vertical links
+  [0, 4],
   [1, 5],
+  [2, 6],
+  [3, 7],
+  // Cross diagonals
+  [0, 5],
+  [1, 4],
+  [2, 7],
+  [3, 6],
 ];
 
 /* =================================================================
@@ -334,7 +335,7 @@ export default function Services(): JSX.Element {
         <div
           ref={constellationRef}
           className="hidden md:block relative mx-auto origin-top"
-          style={{ height: "clamp(425px, 42.5vw, 553px)", transform: "scale(0.85)", transformOrigin: "top center" }}
+          style={{ height: "clamp(340px, 34vw, 440px)", transform: "scale(0.85)", transformOrigin: "top center" }}
           role="list"
           aria-label="Constellation de services"
         >
@@ -383,10 +384,10 @@ export default function Services(): JSX.Element {
               return (
                 <motion.line
                   key={`conn-${a}-${b}`}
-                  x1={`${from.x + 4.5}%`}
-                  y1={`${from.y + 8.5}%`}
-                  x2={`${to.x + 4.5}%`}
-                  y2={`${to.y + 8.5}%`}
+                  x1={`${from.x + 5}%`}
+                  y1={`${from.y + 13}%`}
+                  x2={`${to.x + 5}%`}
+                  y2={`${to.y + 13}%`}
                   stroke={active ? "url(#conn-gradient-active)" : "url(#conn-gradient)"}
                   strokeWidth={active ? 2 : 1.2}
                   strokeLinecap="round"
