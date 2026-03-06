@@ -290,7 +290,7 @@ export default function Services(): JSX.Element {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         {/* ======================= HEADER ========================= */}
         <motion.div
-          className="text-center mb-6"
+          className="text-center mb-8"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -334,7 +334,7 @@ export default function Services(): JSX.Element {
         <div
           ref={constellationRef}
           className="hidden md:block relative mx-auto"
-          style={{ height: "clamp(320px, 32vw, 420px)" }}
+          style={{ height: "clamp(500px, 50vw, 650px)" }}
           role="list"
           aria-label="Constellation de services"
         >
@@ -383,15 +383,15 @@ export default function Services(): JSX.Element {
               return (
                 <motion.line
                   key={`conn-${a}-${b}`}
-                  x1={`${from.x + 3}%`}
-                  y1={`${from.y + 4}%`}
-                  x2={`${to.x + 3}%`}
-                  y2={`${to.y + 4}%`}
+                  x1={`${from.x + 4.5}%`}
+                  y1={`${from.y + 8.5}%`}
+                  x2={`${to.x + 4.5}%`}
+                  y2={`${to.y + 8.5}%`}
                   stroke={active ? "url(#conn-gradient-active)" : "url(#conn-gradient)"}
                   strokeWidth={active ? 1.5 : 0.8}
                   strokeLinecap="round"
                   style={{
-                    opacity: active ? 0.65 : 0.15,
+                    opacity: active ? 0.7 : 0.3,
                     transition: "opacity 0.3s ease, stroke-width 0.3s ease",
                   }}
                   variants={lineVariants}
