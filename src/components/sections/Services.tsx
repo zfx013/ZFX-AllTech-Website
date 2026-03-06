@@ -431,26 +431,11 @@ function ConstellationNode({
             }
           }}
         >
-          {/* Gradient border ring */}
+          {/* Border + background */}
           <div
             className="absolute inset-0 rounded-full"
             style={{
-              padding: "1.5px",
-              background:
-                "linear-gradient(135deg, var(--services-primary), var(--services-secondary))",
-              mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-              WebkitMask:
-                "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-              maskComposite: "exclude",
-              WebkitMaskComposite: "xor",
-            }}
-            aria-hidden="true"
-          />
-
-          {/* Background fill */}
-          <div
-            className="absolute inset-[1.5px] rounded-full"
-            style={{
+              border: "1.5px solid var(--services-primary)",
               background: isHovered
                 ? "color-mix(in srgb, var(--services-primary) 12%, var(--card))"
                 : "var(--card)",
@@ -527,8 +512,10 @@ function ConstellationNode({
               style={{
                 background: "#080808",
                 border: "1px solid rgba(255, 255, 255, 0.1)",
-                top: "calc(100% + 12px)",
                 transform: "translateX(-50%)",
+                ...(index >= 4
+                  ? { bottom: "calc(100% + 12px)" }
+                  : { top: "calc(100% + 12px)" }),
               }}
             >
               {/* Gradient accent bar */}
