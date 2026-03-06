@@ -124,27 +124,6 @@ const SERVICES: ServiceNode[] = [
   },
 ];
 
-/** Pairs of service indices that should be connected */
-const CONNECTIONS: [number, number][] = [
-  // Row 1 horizontal
-  [0, 1],
-  [1, 2],
-  [2, 3],
-  // Row 2 horizontal
-  [4, 5],
-  [5, 6],
-  [6, 7],
-  // Vertical links
-  [0, 4],
-  [1, 5],
-  [2, 6],
-  [3, 7],
-  // Cross diagonals
-  [0, 5],
-  [1, 4],
-  [2, 7],
-  [3, 6],
-];
 
 /* =================================================================
    ANIMATION VARIANTS
@@ -187,24 +166,6 @@ const nodeVariants: Variants = {
   }),
 };
 
-const lineVariants: Variants = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: (i: number) => ({
-    pathLength: 1,
-    opacity: 1,
-    transition: {
-      pathLength: {
-        delay: 0.8 + i * 0.06,
-        duration: 1.0,
-        ease: "easeInOut",
-      },
-      opacity: {
-        delay: 0.8 + i * 0.06,
-        duration: 0.3,
-      },
-    },
-  }),
-};
 
 const panelVariants: Variants = {
   hidden: { opacity: 0 },
@@ -250,15 +211,6 @@ export default function Services(): JSX.Element {
     setHoveredNode(null);
   }, []);
 
-  /** Check if a connection is linked to the hovered node */
-  const isConnectionActive = useCallback(
-    (conn: [number, number]) => {
-      if (!hoveredNode) return false;
-      const hoveredIndex = SERVICES.findIndex((s) => s.id === hoveredNode);
-      return conn[0] === hoveredIndex || conn[1] === hoveredIndex;
-    },
-    [hoveredNode],
-  );
 
   return (
     <section
@@ -331,80 +283,13 @@ export default function Services(): JSX.Element {
           </motion.p>
         </motion.div>
 
-        {/* ================== CONSTELLATION (md+) ================= */}
+        {/* ================== SERVICE GRID (md+) ================= */}
         <div
           ref={constellationRef}
-          className="hidden md:block relative mx-auto origin-top"
-          style={{ height: "clamp(340px, 34vw, 440px)", transform: "scale(0.85)", transformOrigin: "top center" }}
+          className="hidden md:grid grid-cols-4 gap-x-6 gap-y-10 mx-auto max-w-4xl"
           role="list"
-          aria-label="Constellation de services"
+          aria-label="Grille de services"
         >
-          {/* ------- SVG connections ------- */}
-          <svg
-            className="absolute inset-0 w-full h-full"
-            aria-hidden="true"
-            style={{ overflow: "visible" }}
-          >
-            <defs>
-              <linearGradient
-                id="conn-gradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-                <stop offset="0%" stopColor="var(--services-primary)" />
-                <stop offset="100%" stopColor="var(--services-secondary)" />
-              </linearGradient>
-              <linearGradient
-                id="conn-gradient-active"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-                <stop
-                  offset="0%"
-                  stopColor="var(--services-primary)"
-                  stopOpacity="0.9"
-                />
-                <stop
-                  offset="100%"
-                  stopColor="var(--services-secondary)"
-                  stopOpacity="0.9"
-                />
-              </linearGradient>
-            </defs>
-
-            {CONNECTIONS.map(([a, b], i) => {
-              const from = SERVICES[a];
-              const to = SERVICES[b];
-              const active = isConnectionActive([a, b]);
-
-              return (
-                <motion.line
-                  key={`conn-${a}-${b}`}
-                  x1={`${from.x + 5}%`}
-                  y1={`${from.y + 13}%`}
-                  x2={`${to.x + 5}%`}
-                  y2={`${to.y + 13}%`}
-                  stroke={active ? "url(#conn-gradient-active)" : "url(#conn-gradient)"}
-                  strokeWidth={active ? 2 : 1.2}
-                  strokeLinecap="round"
-                  style={{
-                    opacity: active ? 0.8 : 0.45,
-                    transition: "opacity 0.3s ease, stroke-width 0.3s ease",
-                  }}
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  custom={i}
-                />
-              );
-            })}
-          </svg>
-
-          {/* ------- Nodes ------- */}
           {SERVICES.map((service, index) => (
             <ConstellationNode
               key={service.id}
@@ -508,12 +393,8 @@ function ConstellationNode({
 
   return (
     <motion.div
-      className="absolute"
-      style={{
-        left: `${service.x}%`,
-        top: `${service.y}%`,
-        zIndex: isHovered ? 50 : 1,
-      }}
+      className="relative flex flex-col items-center"
+      style={{ zIndex: isHovered ? 50 : 1 }}
       variants={nodeVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -642,23 +523,12 @@ function ConstellationNode({
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="absolute z-10 w-64 rounded-xl p-5 pointer-events-none"
+              className="absolute z-10 w-64 rounded-xl p-5 pointer-events-none left-1/2"
               style={{
                 background: "#080808",
                 border: "1px solid rgba(255, 255, 255, 0.1)",
-                ...(service.y > 60
-                  ? {
-                      bottom: "calc(100% + 16px)",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                    }
-                  : {
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      ...(service.panelSide === "right"
-                        ? { left: "calc(100% + 20px)" }
-                        : { right: "calc(100% + 20px)" }),
-                    }),
+                top: "calc(100% + 12px)",
+                transform: "translateX(-50%)",
               }}
             >
               {/* Gradient accent bar */}
