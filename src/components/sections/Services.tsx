@@ -333,8 +333,8 @@ export default function Services(): JSX.Element {
         {/* ================== CONSTELLATION (md+) ================= */}
         <div
           ref={constellationRef}
-          className="hidden md:block relative mx-auto"
-          style={{ height: "clamp(500px, 50vw, 650px)" }}
+          className="hidden md:block relative mx-auto origin-top"
+          style={{ height: "clamp(375px, 37.5vw, 488px)", transform: "scale(0.75)", transformOrigin: "top center" }}
           role="list"
           aria-label="Constellation de services"
         >
@@ -388,10 +388,10 @@ export default function Services(): JSX.Element {
                   x2={`${to.x + 4.5}%`}
                   y2={`${to.y + 8.5}%`}
                   stroke={active ? "url(#conn-gradient-active)" : "url(#conn-gradient)"}
-                  strokeWidth={active ? 1.5 : 0.8}
+                  strokeWidth={active ? 2 : 1.2}
                   strokeLinecap="round"
                   style={{
-                    opacity: active ? 0.7 : 0.3,
+                    opacity: active ? 0.8 : 0.45,
                     transition: "opacity 0.3s ease, stroke-width 0.3s ease",
                   }}
                   variants={lineVariants}
@@ -435,7 +435,7 @@ export default function Services(): JSX.Element {
 
         {/* ====================== CTA ============================ */}
         <motion.div
-          className="mt-6 text-center"
+          className="mt-14 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
