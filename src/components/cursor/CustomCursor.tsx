@@ -147,9 +147,9 @@ export default function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Smoothed position for the outer ring
-  const ringX = useSpring(mouseX, RING_SPRING);
-  const ringY = useSpring(mouseY, RING_SPRING);
+  // Ring follows mouse directly — no spring lag
+  const ringX = mouseX;
+  const ringY = mouseY;
 
   // ---- Mouse movement handler (RAF-free, Framer handles scheduling) -------
   const handleMouseMove = useCallback(

@@ -290,7 +290,7 @@ export default function Services(): JSX.Element {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         {/* ======================= HEADER ========================= */}
         <motion.div
-          className="text-center mb-10"
+          className="text-center mb-6"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -334,7 +334,7 @@ export default function Services(): JSX.Element {
         <div
           ref={constellationRef}
           className="hidden md:block relative mx-auto"
-          style={{ height: "clamp(360px, 38vw, 480px)" }}
+          style={{ height: "clamp(320px, 32vw, 420px)" }}
           role="list"
           aria-label="Constellation de services"
         >
@@ -435,7 +435,7 @@ export default function Services(): JSX.Element {
 
         {/* ====================== CTA ============================ */}
         <motion.div
-          className="mt-10 text-center"
+          className="mt-6 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
