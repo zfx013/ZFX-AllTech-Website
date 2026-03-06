@@ -1,26 +1,469 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ---------- Custom variants --------------------------------- */
+@custom-variant pointer-fine (@media (pointer: fine));
 
+/* ============================================================
+   ZFX AllTech — "Digital Architect" Design System
+   Premium dark immersive showcase
+   ============================================================ */
+
+/* ---------- Design tokens exposed to Tailwind -------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #050505;
+  --color-fg: #f0f0f0;
+  --color-muted: #999999;
+  --color-card: #0a0a0a;
+  --color-border: #1a1a1a;
+
+  /* Section palettes */
+  --color-hero-primary: #00FFE0;
+  --color-hero-secondary: #0066FF;
+  --color-services-primary: #8B5CF6;
+  --color-services-secondary: #D946EF;
+  --color-process-primary: #10B981;
+  --color-process-secondary: #14B8A6;
+  --color-tech-primary: #F59E0B;
+  --color-tech-secondary: #F97316;
+  --color-portfolio-primary: #F43F5E;
+  --color-portfolio-secondary: #EC4899;
+  --color-about-primary: #94A3B8;
+  --color-about-secondary: #ffffff;
+  --color-contact-primary: #6366F1;
+  --color-contact-secondary: #A855F7;
+
+  --font-sans: var(--font-inter);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------- CSS custom properties (runtime) ---------------- */
+:root {
+  --bg: #050505;
+  --fg: #f0f0f0;
+  --muted: #999999;
+  --card: #0a0a0a;
+  --border: #1a1a1a;
+
+  /* Hero */
+  --hero-primary: #00FFE0;
+  --hero-secondary: #0066FF;
+  /* Services */
+  --services-primary: #8B5CF6;
+  --services-secondary: #D946EF;
+  /* Process */
+  --process-primary: #10B981;
+  --process-secondary: #14B8A6;
+  /* Tech */
+  --tech-primary: #F59E0B;
+  --tech-secondary: #F97316;
+  /* Portfolio */
+  --portfolio-primary: #F43F5E;
+  --portfolio-secondary: #EC4899;
+  /* About */
+  --about-primary: #94A3B8;
+  --about-secondary: #ffffff;
+  /* Contact */
+  --contact-primary: #6366F1;
+  --contact-secondary: #A855F7;
+
+  /* Contextual aliases — override per-section via class */
+  --section-primary: var(--hero-primary);
+  --section-secondary: var(--hero-secondary);
+}
+
+/* ============================================================
+   1. GLOBAL RESET & BASE
+   ============================================================ */
+/* scroll-behavior handled by the scroll-smooth class on <html> */
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--section-primary);
+  color: var(--bg);
+}
+
+/* ============================================================
+   2. SCROLLBAR (fine, dark)
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Firefox */
+@supports (scrollbar-width: thin) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--bg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   3. SECTION SCOPE — sets contextual accent per section
+   ============================================================ */
+.section-hero {
+  --section-primary: var(--hero-primary);
+  --section-secondary: var(--hero-secondary);
+}
+
+.section-services {
+  --section-primary: var(--services-primary);
+  --section-secondary: var(--services-secondary);
+}
+
+.section-process {
+  --section-primary: var(--process-primary);
+  --section-secondary: var(--process-secondary);
+}
+
+.section-tech {
+  --section-primary: var(--tech-primary);
+  --section-secondary: var(--tech-secondary);
+}
+
+.section-portfolio {
+  --section-primary: var(--portfolio-primary);
+  --section-secondary: var(--portfolio-secondary);
+}
+
+.section-about {
+  --section-primary: var(--about-primary);
+  --section-secondary: var(--about-secondary);
+}
+
+.section-contact {
+  --section-primary: var(--contact-primary);
+  --section-secondary: var(--contact-secondary);
+}
+
+/* ============================================================
+   4. UTILITY CLASSES
+   ============================================================ */
+
+/* --- Gradient text (adapts to current section) ------------- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--section-primary), var(--section-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Gradient border card ---------------------------------- */
+.gradient-border {
+  position: relative;
+  background: var(--card);
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--section-primary), var(--section-secondary));
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* --- Noise overlay ----------------------------------------- */
+.noise-overlay {
+  position: relative;
+  isolation: isolate;
+}
+
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* --- Text reveal (clip-path) ------------------------------- */
+.text-reveal {
+  clip-path: inset(0 100% 0 0);
+  animation: reveal 0.8s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+@keyframes reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* --- Magnetic hover ---------------------------------------- */
+.magnetic-hover {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.magnetic-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* --- Glass morphism ---------------------------------------- */
+.glass {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================================
+   5. GLOW — per-section variants
+   ============================================================ */
+.glow-hero {
+  box-shadow:
+    0 0 40px rgba(0, 255, 224, 0.15),
+    0 0 80px rgba(0, 102, 255, 0.08);
+}
+
+.glow-services {
+  box-shadow:
+    0 0 40px rgba(139, 92, 246, 0.15),
+    0 0 80px rgba(217, 70, 239, 0.08);
+}
+
+.glow-process {
+  box-shadow:
+    0 0 40px rgba(16, 185, 129, 0.15),
+    0 0 80px rgba(20, 184, 166, 0.08);
+}
+
+.glow-tech {
+  box-shadow:
+    0 0 40px rgba(245, 158, 11, 0.15),
+    0 0 80px rgba(249, 115, 22, 0.08);
+}
+
+.glow-portfolio {
+  box-shadow:
+    0 0 40px rgba(244, 63, 94, 0.15),
+    0 0 80px rgba(236, 72, 153, 0.08);
+}
+
+.glow-about {
+  box-shadow:
+    0 0 40px rgba(148, 163, 184, 0.12),
+    0 0 80px rgba(255, 255, 255, 0.05);
+}
+
+.glow-contact {
+  box-shadow:
+    0 0 40px rgba(99, 102, 241, 0.15),
+    0 0 80px rgba(168, 85, 247, 0.08);
+}
+
+/* Generic glow using current section color */
+.glow {
+  box-shadow: 0 0 60px color-mix(in srgb, var(--section-primary) 20%, transparent);
+}
+
+.glow-text {
+  text-shadow: 0 0 30px color-mix(in srgb, var(--section-primary) 40%, transparent);
+}
+
+/* ============================================================
+   6. KEYFRAME ANIMATIONS
+   ============================================================ */
+
+/* Float — subtle vertical drift */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow — soft opacity oscillation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Rotate slow — continuous spin */
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+/* Scan line — vertical sweep */
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-scan-line {
+  animation: scan-line 4s ease-in-out infinite;
+}
+
+/* Shimmer — light streak across element */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 55%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   7. ACCESSIBILITY — focus-visible
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--section-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--section-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip to content (sr-only but visible on focus) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  padding: 8px 16px;
+  background: var(--section-primary);
+  color: var(--bg);
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================================
+   8. ORBITAL ANIMATIONS (Technologies section)
+   ============================================================ */
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.orbit-scaler {
+  transform: scale(0.5833);
+  transform-origin: top left;
+}
+
+@media (min-width: 768px) {
+  .orbit-scaler {
+    transform: scale(0.8333);
+  }
+}
+
+@media (min-width: 1024px) {
+  .orbit-scaler {
+    transform: scale(1);
+  }
+}
+
+/* ============================================================
+   9. REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .text-reveal {
+    clip-path: none;
+  }
 }
