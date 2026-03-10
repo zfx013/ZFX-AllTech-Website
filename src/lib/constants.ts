@@ -31,7 +31,7 @@ export const SECTION_COLORS: Record<SectionId, { primary: string; secondary: str
 export const SITE_CONFIG = {
   name: "ZFX AllTech",
   url: "https://zfx-alltech.fr",
-  email: "contact@zfx-alltech.fr",
+  email: "ZFX.AllTech@outlook.fr",
   description:
     "Solutions digitales sur mesure - Développement web, applications mobiles et logiciels métier.",
   socials: {

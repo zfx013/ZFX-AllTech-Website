@@ -375,25 +375,24 @@ export default function Contact(): JSX.Element {
       setErrors({});
 
       try {
-        const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbyIY-nJZQJnkwCPd-jUIGogMjGDPww-VWe3ZF9C5kIpo1sgqfZb0zenAtwlS9pDEUPN/exec",
-          {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: formData.name,
-              email: formData.email,
-              company: formData.company,
-              subject: formData.subject,
-              message: formData.message,
-              website: formData.website,
-            }),
-          }
-        );
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            subject: formData.subject,
+            message: formData.message,
+            website: formData.website,
+          }),
+        });
 
-        // With no-cors mode, we can't read the response, so we assume success
-        // Google Apps Script will handle the actual validation
+        if (!response.ok) {
+          const data = await response.json();
+          throw new Error(data.error || "Erreur lors de l'envoi");
+        }
+
         setStatus("success");
         setFormData({
           name: "",
