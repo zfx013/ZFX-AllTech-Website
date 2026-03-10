@@ -58,6 +58,12 @@ export default function Home() {
             >
               Politique de confidentialit&eacute;
             </a>
+            <a
+              href="/cgv"
+              className="transition-colors hover:text-fg"
+            >
+              CGV
+            </a>
           </div>
         </div>
       </footer>
