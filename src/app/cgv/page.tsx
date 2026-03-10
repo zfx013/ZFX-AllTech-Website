@@ -127,6 +127,10 @@ export default function CGV() {
                 Automatisation de processus m&eacute;tier et int&eacute;grations
               </li>
               <li>
+                Solutions d&apos;intelligence artificielle (chatbots, agents IA,
+                int&eacute;grations IA)
+              </li>
+              <li>
                 Tableaux de bord analytiques et reporting
               </li>
             </ul>

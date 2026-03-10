@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | ZFX AllTech",
   },
   description:
-    "ZFX AllTech - Votre partenaire pour le développement web, applications mobiles, logiciels métier et solutions digitales sur mesure. Expertise full-stack pour transformer vos idées en réalité.",
+    "ZFX AllTech - Votre partenaire pour le développement web, applications mobiles, logiciels métier, IA et automatisations. Expertise full-stack pour transformer vos idées en réalité.",
   keywords: [
     "développement web",
     "application mobile",
@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     "développeur",
     "agence web",
     "création site web",
+    "intelligence artificielle",
+    "automatisation",
+    "IA",
     "React",
     "Next.js",
     "TypeScript",
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "ZFX AllTech",
     title: "ZFX AllTech | Solutions Digitales Sur Mesure",
     description:
-      "Votre partenaire pour le développement web, applications mobiles et solutions digitales sur mesure. Expertise full-stack de A à Z.",
+      "Votre partenaire pour le développement web, applications mobiles, IA et automatisations. Expertise full-stack de A à Z.",
     images: [
       {
         url: "/og-image.svg",
@@ -62,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ZFX AllTech | Solutions Digitales Sur Mesure",
     description:
-      "Votre partenaire pour le développement web, applications mobiles et solutions digitales sur mesure.",
+      "Votre partenaire pour le développement web, applications mobiles, IA et automatisations.",
     images: ["/og-image.svg"],
     creator: "@zfxalltech",
   },
@@ -102,7 +105,7 @@ const jsonLd = {
         height: 512,
       },
       description:
-        "Entreprise de développement informatique et solutions digitales sur mesure",
+        "Entreprise de développement informatique, IA et automatisations sur mesure",
       email: "ZFX.AllTech@outlook.fr",
       foundingDate: "2026",
       address: {

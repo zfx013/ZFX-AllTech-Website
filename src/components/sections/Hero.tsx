@@ -309,7 +309,7 @@ const Hero = memo(function Hero(): JSX.Element {
           {...fadeSlideUp(0.7)}
         >
           ZFX AllTech con&ccedil;oit et d&eacute;veloppe vos projets num&eacute;riques de A &agrave; Z.
-          Sites web, applications, logiciels m&eacute;tier &mdash; avec la rigueur et la passion du code.
+          Sites web, applications, logiciels m&eacute;tier, IA et automatisations &mdash; avec la rigueur et la passion du code.
         </motion.p>
 
         {/* CTAs */}

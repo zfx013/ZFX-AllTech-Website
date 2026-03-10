@@ -33,7 +33,7 @@ export const SITE_CONFIG = {
   url: "https://zfx-alltech.fr",
   email: "ZFX.AllTech@outlook.fr",
   description:
-    "Solutions digitales sur mesure - Développement web, applications mobiles et logiciels métier.",
+    "Solutions digitales sur mesure - Développement web, applications mobiles, logiciels métier, IA et automatisations.",
   socials: {
     github: "https://github.com/zfx-alltech",
     linkedin: "https://linkedin.com/company/zfx-alltech",
