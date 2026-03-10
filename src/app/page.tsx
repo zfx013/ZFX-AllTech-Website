@@ -17,11 +17,6 @@ import { CursorProvider } from "@/contexts/CursorContext";
 export default function Home() {
   return (
     <CursorProvider>
-      {/* Skip to content link (accessibility) - must be first focusable */}
-      <a href="#hero" className="skip-link">
-        Aller au contenu principal
-      </a>
-
       {/* Custom cursor (desktop only, fine pointer) */}
       <CustomCursor />
 
