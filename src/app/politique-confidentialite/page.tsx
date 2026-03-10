@@ -57,10 +57,14 @@ export default function PolitiqueConfidentialite() {
             <div className="rounded-xl border border-border bg-card/50 p-6 text-muted">
               <p className="mb-2">
                 <strong className="text-fg">Responsable :</strong> ZFX AllTech
+                (SAS)
+              </p>
+              <p className="mb-2">
+                <strong className="text-fg">SIRET :</strong> 999 732 340 00016
               </p>
               <p className="mb-2">
                 <strong className="text-fg">Si&egrave;ge social :</strong>{" "}
-                France
+                51 Rue Gambetta, 95600 Eaubonne, France
               </p>
               <p>
                 <strong className="text-fg">Contact :</strong>{" "}

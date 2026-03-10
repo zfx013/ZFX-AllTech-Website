@@ -43,13 +43,18 @@ export default function MentionsLegales() {
                 AllTech
               </p>
               <p className="mb-2">
-                <strong className="text-fg">Forme juridique :</strong> SASU
-                (Soci&eacute;t&eacute; par Actions Simplifi&eacute;e
-                Unipersonnelle)
+                <strong className="text-fg">Forme juridique :</strong> SAS
+                (Soci&eacute;t&eacute; par Actions Simplifi&eacute;e)
+              </p>
+              <p className="mb-2">
+                <strong className="text-fg">SIRET :</strong> 999 732 340 00016
+              </p>
+              <p className="mb-2">
+                <strong className="text-fg">N&deg; TVA intracommunautaire :</strong> FR03999732340
               </p>
               <p className="mb-2">
                 <strong className="text-fg">Si&egrave;ge social :</strong>{" "}
-                France
+                51 Rue Gambetta, 95600 Eaubonne, France
               </p>
               <p className="mb-2">
                 <strong className="text-fg">Email :</strong>{" "}
@@ -64,7 +69,7 @@ export default function MentionsLegales() {
                 <strong className="text-fg">
                   Directeur de la publication :
                 </strong>{" "}
-                Luis Filipe PINTO SECA
+                Luis Filipe PINTO SECA, Pr&eacute;sident
               </p>
             </div>
           </section>

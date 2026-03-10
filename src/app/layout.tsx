@@ -104,11 +104,15 @@ const jsonLd = {
       description:
         "Entreprise de développement informatique et solutions digitales sur mesure",
       email: "ZFX.AllTech@outlook.fr",
-      foundingDate: "2024",
-      areaServed: {
-        "@type": "Country",
-        name: "France",
+      foundingDate: "2026",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "51 Rue Gambetta",
+        addressLocality: "Eaubonne",
+        postalCode: "95600",
+        addressCountry: "FR",
       },
+      areaServed: "Worldwide",
       sameAs: [
         "https://github.com/zfx-alltech",
         "https://linkedin.com/company/zfx-alltech",
@@ -125,12 +129,15 @@ const jsonLd = {
       email: "ZFX.AllTech@outlook.fr",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "51 Rue Gambetta",
+        addressLocality: "Eaubonne",
+        postalCode: "95600",
         addressCountry: "FR",
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 46.603354,
-        longitude: 1.888334,
+        latitude: 48.9922,
+        longitude: 2.2782,
       },
       priceRange: "$$",
       openingHoursSpecification: {
