@@ -25,7 +25,7 @@ export default function PolitiqueConfidentialite() {
             Politique de Confidentialit&eacute;
           </h1>
           <p className="mt-2 text-muted">
-            Derni&egrave;re mise &agrave; jour : Janvier 2024
+            Derni&egrave;re mise &agrave; jour : Mars 2026
           </p>
         </div>
       </div>
@@ -95,16 +95,11 @@ export default function PolitiqueConfidentialite() {
                 </li>
               </ul>
 
-              <h3 className="mb-3 text-lg font-medium text-fg">
-                Donn&eacute;es collect&eacute;es automatiquement :
-              </h3>
-              <ul className="list-inside list-disc space-y-2">
-                <li>Adresse IP</li>
-                <li>Type de navigateur et version</li>
-                <li>Syst&egrave;me d&apos;exploitation</li>
-                <li>Pages visit&eacute;es et dur&eacute;e de visite</li>
-                <li>Source de r&eacute;f&eacute;rence</li>
-              </ul>
+              <p className="text-sm italic">
+                Aucune donn&eacute;e n&apos;est collect&eacute;e
+                automatiquement. Ce site n&apos;utilise ni cookies, ni
+                traceurs, ni outils d&apos;analyse.
+              </p>
             </div>
           </section>
 
@@ -121,10 +116,6 @@ export default function PolitiqueConfidentialite() {
               </li>
               <li>Vous fournir des informations sur nos services</li>
               <li>Am&eacute;liorer notre site web et nos services</li>
-              <li>
-                &Eacute;tablir des statistiques de fr&eacute;quentation
-                anonymis&eacute;es
-              </li>
               <li>Respecter nos obligations l&eacute;gales</li>
             </ul>
           </section>
@@ -171,7 +162,6 @@ export default function PolitiqueConfidentialite() {
                 Donn&eacute;es de contact : 3 ans apr&egrave;s le dernier
                 contact
               </li>
-              <li>Donn&eacute;es de navigation : 13 mois maximum</li>
               <li>
                 Donn&eacute;es contractuelles : dur&eacute;e l&eacute;gale de
                 conservation (10 ans)
@@ -201,19 +191,11 @@ export default function PolitiqueConfidentialite() {
             <h2 className="mb-4 text-2xl font-semibold text-fg">
               8. Cookies
             </h2>
-            <p className="mb-4 leading-relaxed text-muted">
-              Notre site peut utiliser des cookies pour :
-            </p>
-            <ul className="mb-4 list-inside list-disc space-y-2 text-muted">
-              <li>Assurer le bon fonctionnement du site</li>
-              <li>M&eacute;moriser vos pr&eacute;f&eacute;rences</li>
-              <li>
-                &Eacute;tablir des statistiques de fr&eacute;quentation
-              </li>
-            </ul>
             <p className="leading-relaxed text-muted">
-              Vous pouvez configurer votre navigateur pour refuser les cookies ou
-              &ecirc;tre alert&eacute; lors de leur d&eacute;p&ocirc;t.
+              Ce site n&apos;utilise aucun cookie ni aucun traceur.
+              Aucune donn&eacute;e de navigation n&apos;est collect&eacute;e
+              automatiquement. Aucune bannière de consentement n&apos;est
+              n&eacute;cessaire.
             </p>
           </section>
 

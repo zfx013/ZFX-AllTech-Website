@@ -25,7 +25,7 @@ export default function MentionsLegales() {
             Mentions L&eacute;gales
           </h1>
           <p className="mt-2 text-muted">
-            Derni&egrave;re mise &agrave; jour : Janvier 2024
+            Derni&egrave;re mise &agrave; jour : Mars 2026
           </p>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function MentionsLegales() {
                 <strong className="text-fg">
                   Directeur de la publication :
                 </strong>{" "}
-                Le Pr&eacute;sident de ZFX AllTech
+                Luis Filipe PINTO SECA
               </p>
             </div>
           </section>
@@ -157,17 +157,9 @@ export default function MentionsLegales() {
               6. Cookies
             </h2>
             <p className="leading-relaxed text-muted">
-              Ce site peut utiliser des cookies pour am&eacute;liorer
-              l&apos;exp&eacute;rience utilisateur. Pour plus
-              d&apos;informations sur notre utilisation des cookies, veuillez
-              consulter notre{" "}
-              <Link
-                href="/politique-confidentialite"
-                className="text-hero-primary transition-colors hover:text-hero-secondary"
-              >
-                Politique de confidentialit&eacute;
-              </Link>
-              .
+              Ce site n&apos;utilise aucun cookie ni aucun traceur.
+              Aucune donn&eacute;e de navigation n&apos;est collect&eacute;e
+              automatiquement.
             </p>
           </section>
 
