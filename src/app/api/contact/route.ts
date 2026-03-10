@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
     const subject = (body.subject ?? "").trim();
     const message = (body.message ?? "").trim();
 
-    if (!name || !email || !message) {
+    if (!name || !email || !subject) {
       return NextResponse.json(
         { error: "Champs requis manquants" },
         { status: 400 }
@@ -110,13 +110,6 @@ export async function POST(request: NextRequest) {
 
     if (!EMAIL_REGEX.test(email)) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 });
-    }
-
-    if (message.length < 20) {
-      return NextResponse.json(
-        { error: "Message trop court" },
-        { status: 400 }
-      );
     }
 
     // Forward to Google Apps Script (server-side — URL hidden from client)

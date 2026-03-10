@@ -427,6 +427,9 @@ const About = memo(function About(): JSX.Element {
             &ldquo;Le code est notre art. Votre succ&egrave;s est notre
             signature.&rdquo;
           </p>
+          <p className="mt-4 text-sm tracking-wide text-[var(--muted)]">
+            Luis Filipe PINTO SECA &mdash; Fondateur &amp; Pr&eacute;sident
+          </p>
         </motion.div>
       </div>
     </section>

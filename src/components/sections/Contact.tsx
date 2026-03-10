@@ -85,6 +85,7 @@ interface FormData {
 interface FormErrors {
   name?: string;
   email?: string;
+  subject?: string;
   message?: string;
 }
 
@@ -173,10 +174,8 @@ function validateForm(data: FormData): FormErrors {
     errors.email = "Format d\u2019email invalide.";
   }
 
-  if (!data.message.trim()) {
-    errors.message = "Le message est requis.";
-  } else if (data.message.trim().length < 20) {
-    errors.message = "Le message doit contenir au moins 20 caractères.";
+  if (!data.subject.trim()) {
+    errors.subject = "Le sujet est requis.";
   }
 
   return errors;
@@ -624,13 +623,15 @@ export default function Contact(): JSX.Element {
                 </FormField>
 
                 {/* Sujet */}
-                <FormField label="Sujet" id="contact-subject">
+                <FormField label="Sujet" id="contact-subject" error={errors.subject} required>
                   <select
                     id="contact-subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     aria-label="Choisir un sujet"
+                    aria-required="true"
+                    aria-invalid={!!errors.subject}
                     className={`${INPUT_BASE_CLASSES} cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999999%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_12px_center] bg-no-repeat pr-10`}
                   >
                     {SUBJECT_OPTIONS.map((opt) => (
@@ -652,22 +653,15 @@ export default function Contact(): JSX.Element {
                 <FormField
                   label="Message"
                   id="contact-message"
-                  error={errors.message}
-                  required
                 >
                   <textarea
                     id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Décrivez votre projet en quelques mots..."
+                    placeholder="Décrivez votre projet en quelques mots (optionnel)..."
                     rows={5}
-                    aria-required="true"
-                    aria-invalid={!!errors.message}
-                    aria-describedby={
-                      errors.message ? "contact-message-error" : undefined
-                    }
-                    className={`${INPUT_BASE_CLASSES} resize-none ${errors.message ? "shadow-[0_0_0_3px_rgba(239,68,68,0.15)]" : ""}`}
+                    className={`${INPUT_BASE_CLASSES} resize-none`}
                   />
                 </FormField>
 
